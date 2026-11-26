@@ -1,0 +1,33 @@
+# Unity regenerates all of these. Keeping them out is what makes each tag's
+# GitHub zip a small, clean project: Assets/, Packages/, ProjectSettings/.
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Ll]ogs/
+**/[Uu]ser[Ss]ettings/
+**/[Bb]uild/
+**/[Bb]uilds/
+**/[Mm]emoryCaptures/
+**/[Rr]ecordings/
+
+# IDE and generated solution files
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Crash reports and OS files
+sysinfo.txt
+crashlytics-build.properties
+.DS_Store
+Thumbs.db
