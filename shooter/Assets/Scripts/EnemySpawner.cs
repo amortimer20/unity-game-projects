@@ -16,6 +16,12 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        // Nothing spawns on the title screen or after game over.
+        if (GameManager.instance.state != GameState.Playing)
+        {
+            return;
+        }
+
         timer = timer - Time.deltaTime;
 
         if (timer <= 0f)

@@ -8,7 +8,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && GameManager.instance.state == GameState.Playing)
         {
             Vector3 nose = transform.position + new Vector3(0f, 0.6f, 0f);
             Instantiate(laserPrefab, nose, Quaternion.identity);

@@ -1,15 +1,28 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using TMPro;
 
-// Keeps the score and lives and shows them on screen.
+// The three states the game can be in. It is always exactly one of them.
+public enum GameState
+{
+    Title,
+    Playing,
+    GameOver
+}
+
+// Keeps the score, lives and game state, and shows them on screen.
 // Any script can reach it as GameManager.instance.
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public GameState state = GameState.Title;
     public int score = 0;
     public int lives = 3;
     public TMP_Text scoreText;
     public TMP_Text livesText;
+    public GameObject titleText;
+    public GameObject gameOverText;
     public GameObject player;
 
     void Awake()
@@ -20,6 +33,21 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateText();
+        titleText.SetActive(true);
+        gameOverText.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (state == GameState.Title && Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            state = GameState.Playing;
+            titleText.SetActive(false);
+        }
+        else if (state == GameState.GameOver && Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     public void AddScore(int points)
@@ -35,7 +63,9 @@ public class GameManager : MonoBehaviour
 
         if (lives <= 0)
         {
+            state = GameState.GameOver;
             Destroy(player);
+            gameOverText.SetActive(true);
         }
     }
 
