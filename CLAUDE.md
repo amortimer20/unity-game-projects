@@ -9,7 +9,8 @@ model for students.
 
 ## What matters here
 
-- **Unity 6.7 is pinned to one exact release, deliberately.** Editor
+- **Unity `6000.7.0b10` is pinned, deliberately** — this exact build for
+  the whole 2026–27 run, not a later 6.7. Editor
   screenshots across `skynest-nexus` are tied to it. Don't open a project in
   a different editor version — Unity silently upgrades the project on open.
 - **Every activity's end state is a git tag** (`junkyard/1-3`,

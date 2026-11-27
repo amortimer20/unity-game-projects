@@ -4,8 +4,9 @@ Finished reference builds for **Fundamentals of Game Design**, one Unity project
 game. These are the instructor's copies: the course activities are cut from them, and
 every figure and clip names a state in here.
 
-**Unity 6.7**, pinned to one exact release once 6.7 is stable. Editor screenshots are
-tied to that release, so changing the version can make the course's figures wrong.
+**Unity `6000.7.0b10`**, pinned for the 2026–27 run — this exact build, not a later 6.7.
+Editor screenshots are tied to it, so changing the version can make the course's figures
+wrong.
 
 Replaces the Godot-era `game-design-projects` repository, retired when the course moved
 to Unity on 2026-11-25.
