@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Click anywhere to launch a ball from here toward the mouse.
-// Block 2 explains every line. For now, add it and play.
 public class BallLauncher : MonoBehaviour
 {
     public GameObject ballPrefab;
+    public float launchPower = 15f;
+    public float ballMass = 3f;
 
     void Update()
     {
@@ -16,7 +17,9 @@ public class BallLauncher : MonoBehaviour
             Vector3 direction = (mousePosition - transform.position).normalized;
 
             GameObject ball = Instantiate(ballPrefab, transform.position, Quaternion.identity);
-            ball.GetComponent<Rigidbody2D>().linearVelocity = direction * 15f;
+            Rigidbody2D body = ball.GetComponent<Rigidbody2D>();
+            body.mass = ballMass;
+            body.linearVelocity = direction * launchPower;
         }
     }
 }
