@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf7219bab7fe46a1ad266029b2fee19, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier:
+  commonStyle: {fileID: 7433441132597879392, guid: d2c670ece470f4c4fa6712b8dc28a9bb, type: 3}
+  darkStyle: {fileID: 7433441132597879392, guid: 1f902e57f049a7f47986618de93f5ee1, type: 3}
+  lightStyle: {fileID: 7433441132597879392, guid: 69e7ab73923f93149821ac3a88b84856, type: 3}
+  icon: {fileID: 2800000, guid: 474ce57d7c1704418af05d72d996ae5e, type: 3}
+  title: Welcome to Universal 2D Project
+  sections:
+  - text: "This project is configured with an empty scene and a default Universal Render Pipeline 2D Renderer to get you started with your 2D Game.\n\nHave fun!"
+  - heading: Resources
+  - text:
+    linkText: Explore 2D
+    url: https://unity.com/features/2d
+  - text:
+    linkText: Read more about 2D
+    url: https://docs.unity.com/en-us/engine/latest/manual/unity2d
+  - text:
+    linkText: Get answers and support
+    url: https://discussions.unity.com/tag/2d/159284

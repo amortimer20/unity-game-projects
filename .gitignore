@@ -31,3 +31,12 @@ sysinfo.txt
 crashlytics-build.properties
 .DS_Store
 Thumbs.db
+*.slnx
+
+# Authoring-only: Unity CLI agent scripts and editor captures
+**/AgentScripts/
+**/Screenshots/
+
+# Unity rebuilds the lock from manifest.json on open; the local one also lists the
+# authoring-only Pipeline package
+**/Packages/packages-lock.json

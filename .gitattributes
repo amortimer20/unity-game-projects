@@ -1,0 +1,3 @@
+# Hooks and shell scripts must keep LF endings or sh cannot run them
+*.sh text eol=lf
+.githooks/* text eol=lf

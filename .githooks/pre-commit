@@ -1,0 +1,12 @@
+#!/bin/sh
+# Refuse a commit whose staged package manifest names the Unity CLI's Pipeline
+# package. It is authoring-only, and every tagged commit is a zip students download.
+bad=$(git diff --cached --name-only | grep -E 'Packages/(manifest|packages-lock)\.json$' | while read -r f; do
+    git show ":$f" 2>/dev/null | grep -q 'com\.unity\.pipeline' && echo "$f"
+done)
+if [ -n "$bad" ]; then
+    echo "pre-commit: com.unity.pipeline is staged in:" >&2
+    echo "$bad" >&2
+    echo "Stage the manifest without it (see README, 'Authoring with the Unity CLI')." >&2
+    exit 1
+fi

@@ -20,7 +20,7 @@ to Unity on 2026-11-25.
 | `shooter/` | Vertical space shooter | 1.12–1.19 |
 | `platformer/` | Run, jump, shoot | 2.1–2.16 |
 
-None exist yet. Each is added as it is built.
+Each is added as it is built; `junkyard/` is in progress.
 
 ## Tags are the point
 
@@ -67,3 +67,24 @@ practice.
 Everything committed here is **CC0**, because these projects are distributed to students
 as zips and that is redistribution. Kenney packs carry their `license.txt` alongside the
 art they came from. Nothing comes from the Asset Store or an AI generator.
+
+## Authoring with the Unity CLI
+
+The projects are built by driving the editor with the Unity CLI, which needs its
+**Pipeline package** (`com.unity.pipeline`) in the project. `unity projects create` adds
+it automatically. It must never reach a commit, because every tag is a zip students
+download, so:
+
+- **`Packages/manifest.json` is committed without it.** After any package change, run
+  `scripts/stage-manifest.sh <project>`: it stages the manifest minus the Pipeline line
+  and marks the file skip-worktree so the local copy stays as the CLI needs it.
+- **`Packages/packages-lock.json` is not committed.** Unity rebuilds it from the
+  manifest on open, and the local one lists Pipeline.
+- **A pre-commit hook refuses any staged manifest or lock that names it.** After a
+  fresh clone, enable it once: `git config core.hooksPath .githooks`.
+
+Agent scripts (`AgentScripts/`) and editor captures (`Screenshots/`) live inside each
+project folder for the CLI's convenience and are gitignored.
+
+**Keep the clone at a short path.** Windows' 260-character limit breaks Unity's package
+import when the project sits deep in the file system.
