@@ -48,7 +48,7 @@ examples. Ease of use comes first; each rule is the simplest form of common Unit
 practice.
 
 1. **Folders by type** inside `Assets/`: `Scenes/`, `Scripts/`, `Prefabs/`, `Sprites/`,
-   `Audio/`.
+   `Materials/` (physics materials), `Audio/`.
 2. **A script goes on the object it controls**, one script per job.
 3. **Tunable numbers are `public` fields.**
 4. **`GetComponent` once in `Start`**, stored in a field, for components on the same
