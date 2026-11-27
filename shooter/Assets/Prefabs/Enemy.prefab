@@ -108,6 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 3
+  points: 10
+  explosionPrefab: {fileID: 4795325177501002277, guid: 02c6ec8b32e402f4fbd3c328921e8c55, type: 3}
+  explosionSound: {fileID: 8300000, guid: b3c248f610069f346affc114a407f1e3, type: 3}
 --- !u!58 &4293699860259465793
 CircleCollider2D:
   m_ObjectHideFlags: 0

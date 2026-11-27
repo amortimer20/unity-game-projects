@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverText;
     public GameObject player;
     public CameraShake cameraShake;
+    public AudioClip startSound;
+    public AudioClip hurtSound;
+    public AudioClip gameOverSound;
 
     float hitstopTimer = 0f;
 
@@ -58,6 +61,7 @@ public class GameManager : MonoBehaviour
         {
             state = GameState.Playing;
             titleText.SetActive(false);
+            PlaySound(startSound);
         }
         else if (state == GameState.GameOver && Keyboard.current.rKey.wasPressedThisFrame)
         {
@@ -75,12 +79,14 @@ public class GameManager : MonoBehaviour
     {
         lives = lives - 1;
         UpdateText();
+        PlaySound(hurtSound);
 
         if (lives <= 0)
         {
             state = GameState.GameOver;
             Destroy(player);
             gameOverText.SetActive(true);
+            PlaySound(gameOverSound);
         }
     }
 
@@ -89,6 +95,11 @@ public class GameManager : MonoBehaviour
     {
         hitstopTimer = seconds;
         Time.timeScale = 0f;
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+        AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
     }
 
     void UpdateText()
