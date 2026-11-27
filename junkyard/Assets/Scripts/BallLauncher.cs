@@ -11,7 +11,7 @@ public class BallLauncher : MonoBehaviour
 
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.leftButton.wasPressedThisFrame && GameManager.instance.gameOver == false)
         {
             if (ballsLeft > 0)
             {
