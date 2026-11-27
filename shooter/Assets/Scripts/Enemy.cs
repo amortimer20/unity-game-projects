@@ -22,12 +22,16 @@ public class Enemy : MonoBehaviour
         if (other.GetComponent<Laser>() != null)
         {
             GameManager.instance.AddScore(points);
+            GameManager.instance.Hitstop(0.05f);
+            GameManager.instance.cameraShake.Shake(0.15f);
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
         else if (other.GetComponent<PlayerMovement>() != null)
         {
             GameManager.instance.LoseLife();
+            GameManager.instance.Hitstop(0.2f);
+            GameManager.instance.cameraShake.Shake(0.5f);
             Destroy(gameObject);
         }
     }

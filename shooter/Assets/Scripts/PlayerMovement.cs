@@ -2,10 +2,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Moves the ship left and right with A and D or the arrow keys.
+// Its speed eases toward the target instead of jumping straight to it.
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 8f;
     public float edge = 8f;
+    public float smoothing = 12f;
+
+    float velocity = 0f;
 
     void Update()
     {
@@ -21,7 +25,10 @@ public class PlayerMovement : MonoBehaviour
             direction = 1f;
         }
 
-        transform.position += new Vector3(direction, 0f, 0f) * speed * Time.deltaTime;
+        // Lerp moves velocity part of the way to the target speed each frame.
+        float targetVelocity = direction * speed;
+        velocity = Mathf.Lerp(velocity, targetVelocity, smoothing * Time.deltaTime);
+        transform.position += new Vector3(velocity, 0f, 0f) * Time.deltaTime;
 
         // Stop at the edges of the screen.
         float x = Mathf.Clamp(transform.position.x, -edge, edge);

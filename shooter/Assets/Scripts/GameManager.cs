@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public GameObject titleText;
     public GameObject gameOverText;
     public GameObject player;
+    public CameraShake cameraShake;
+
+    float hitstopTimer = 0f;
 
     void Awake()
     {
@@ -32,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         UpdateText();
         titleText.SetActive(true);
         gameOverText.SetActive(false);
@@ -39,6 +43,17 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // Count the hitstop down in real time, then let the game run again.
+        if (hitstopTimer > 0f)
+        {
+            hitstopTimer = hitstopTimer - Time.unscaledDeltaTime;
+
+            if (hitstopTimer <= 0f)
+            {
+                Time.timeScale = 1f;
+            }
+        }
+
         if (state == GameState.Title && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             state = GameState.Playing;
@@ -67,6 +82,13 @@ public class GameManager : MonoBehaviour
             Destroy(player);
             gameOverText.SetActive(true);
         }
+    }
+
+    // Freezes the game for a split second so a hit lands with weight.
+    public void Hitstop(float seconds)
+    {
+        hitstopTimer = seconds;
+        Time.timeScale = 0f;
     }
 
     void UpdateText()
