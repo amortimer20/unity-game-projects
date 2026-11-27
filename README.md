@@ -4,7 +4,8 @@ Finished reference builds for **Fundamentals of Game Design**, one Unity project
 game. These are the instructor's copies: the course activities are cut from them, and
 every figure and clip names a state in here.
 
-**Unity `6000.7.0b10`**, pinned for the 2026–27 run — this exact build, not a later 6.7.
+**Unity 6.7, currently `6000.7.0b10`.** The pin is re-evaluated when 6.7 final ships,
+before teaching starts in mid-January; after that it stays fixed for the 2026–27 run.
 Editor screenshots are tied to it, so changing the version can make the course's figures
 wrong.
 
