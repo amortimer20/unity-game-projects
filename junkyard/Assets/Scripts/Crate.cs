@@ -18,13 +18,7 @@ public class Crate : MonoBehaviour
         if (scored == false && distanceMoved > 1f)
         {
             scored = true;
-            GameManager.instance.score = GameManager.instance.score + 1;
-            Debug.Log("Toppled! Score: " + GameManager.instance.score);
-
-            if (GameManager.instance.score == GameManager.instance.targetScore)
-            {
-                Debug.Log("You win!");
-            }
+            GameManager.instance.AddPoint();
         }
     }
 }

@@ -28,7 +28,7 @@ public class BallLauncher : MonoBehaviour
             }
             else
             {
-                Debug.Log("Out of balls!");
+                Debug.Log("Out of balls! Press R to try again.");
             }
         }
     }
