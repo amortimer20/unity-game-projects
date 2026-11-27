@@ -18,7 +18,8 @@ model for students.
   broken project, so a tag is made only after the step has been played and
   confirmed working in the editor.
 - **The Unity CLI's Pipeline package (`com.unity.pipeline`) must never be in
-  a commit.** It is for authoring only. Before committing, check that
+  a commit.** It is for authoring only, and `unity projects create` adds it
+  to every new project automatically. Before committing, check that
   `Packages/manifest.json` does not list it — every tagged commit is a zip a
   student downloads.
 - **No Asset Store items, no AI-generated assets.** Everything committed is
