@@ -68,6 +68,13 @@ Everything committed here is **CC0**, because these projects are distributed to 
 as zips and that is redistribution. Kenney packs carry their `license.txt` alongside the
 art they came from. Nothing comes from the Asset Store or an AI generator.
 
+**One exception, kept on purpose (2026-11-27):** `Assets/TextMesh Pro/` is Unity's own
+TMP Essential Resources, which every project imports before its first text appears. It
+bundles the LiberationSans font under the SIL Open Font License, with
+`LiberationSans - OFL.txt` alongside. The OFL permits redistribution, and keeping the
+import intact matches what students' own projects contain. The games' visible text uses
+the Kenney fonts.
+
 ## Authoring with the Unity CLI
 
 The projects are built by driving the editor with the Unity CLI, which needs its

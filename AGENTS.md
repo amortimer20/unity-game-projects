@@ -23,7 +23,9 @@ model for students.
   `Packages/manifest.json` does not list it — every tagged commit is a zip a
   student downloads.
 - **No Asset Store items, no AI-generated assets.** Everything committed is
-  CC0, with its license file alongside.
+  CC0, with its license file alongside. The one exception is Unity's TMP
+  Essential Resources (`Assets/TextMesh Pro/`, LiberationSans under the OFL),
+  kept on purpose; see the README's *Assets* section.
 - **`Library/`, `Temp/`, `Obj/`, `Logs/`, `UserSettings/` and build output
   are gitignored on purpose**, so tag zips stay small, clean projects.
 
