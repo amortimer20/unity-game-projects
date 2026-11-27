@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed = 3f;
+    public int points = 10;
 
     void Update()
     {
@@ -20,12 +21,13 @@ public class Enemy : MonoBehaviour
     {
         if (other.GetComponent<Laser>() != null)
         {
+            GameManager.instance.AddScore(points);
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
         else if (other.GetComponent<PlayerMovement>() != null)
         {
-            Debug.Log("The player was hit!");
+            GameManager.instance.LoseLife();
             Destroy(gameObject);
         }
     }
