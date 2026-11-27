@@ -20,7 +20,7 @@ to Unity on 2026-11-25.
 | `shooter/` | Vertical space shooter | 1.12–1.19 |
 | `platformer/` | Run, jump, shoot | 2.1–2.16 |
 
-Each is added as it is built; `junkyard/` is in progress.
+Each is added as it is built: `junkyard/` is done, and `shooter/` is in progress.
 
 ## Tags are the point
 
