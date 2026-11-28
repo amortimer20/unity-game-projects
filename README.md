@@ -20,7 +20,7 @@ to Unity on 2026-11-25.
 | `shooter/` | Vertical space shooter | 1.12–1.19 |
 | `platformer/` | Run, jump, shoot | 2.1–2.16 |
 
-Each is added as it is built: `junkyard/` and `shooter/` are done, and `platformer/` is in progress.
+All three are built and tagged for every activity.
 
 ## Tags are the point
 
@@ -48,7 +48,8 @@ examples. Ease of use comes first; each rule is the simplest form of common Unit
 practice.
 
 1. **Folders by type** inside `Assets/`: `Scenes/`, `Scripts/`, `Prefabs/`, `Sprites/`,
-   `Materials/` (physics materials), `Audio/`.
+   `Materials/` (physics materials), `Audio/`, and where a game needs them `Fonts/`,
+   `Tiles/` (tile assets and palettes) and `Animations/` (clips and controllers).
 2. **A script goes on the object it controls**, one script per job.
 3. **Tunable numbers are `public` fields.**
 4. **`GetComponent` once in `Start`**, stored in a field, for components on the same
