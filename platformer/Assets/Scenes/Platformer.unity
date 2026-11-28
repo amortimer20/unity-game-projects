@@ -592,7 +592,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e45c39c26eed2d4d91e6ce6a7d60922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  jumpSpeed: 7
+  jumpSpeed: 12
+  riseGravity: 3
+  fallGravity: 5
+  maxFallSpeed: 15
   groundCheck: {fileID: 2067961850}
   checkRadius: 0.2
   groundLayer:
