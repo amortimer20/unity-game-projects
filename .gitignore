@@ -40,3 +40,7 @@ Thumbs.db
 # Unity rebuilds the lock from manifest.json on open; the local one also lists the
 # authoring-only Pipeline package
 **/Packages/packages-lock.json
+
+# Unity writes a recovery copy of the open scene here after an editor crash
+**/Assets/_Recovery/
+**/Assets/_Recovery.meta
