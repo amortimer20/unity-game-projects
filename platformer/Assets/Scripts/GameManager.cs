@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public Rigidbody2D player;
     public Transform respawnPoint;
     public float hurtCooldown = 1f;
+    public float knockback = 8f;
 
     float hurtTimer = 0f;
 
@@ -63,6 +64,22 @@ public class GameManager : MonoBehaviour
             // The player is a dynamic body, so move the body, not the transform.
             player.position = respawnPoint.position;
             player.linearVelocity = Vector2.zero;
+        }
+    }
+
+    // Enemies call this: lose one health and bounce up off the enemy.
+    public void HitEnemy()
+    {
+        if (state != GameState.Playing || hurtTimer > 0f)
+        {
+            return;
+        }
+
+        LoseHealth();
+
+        if (state == GameState.Playing)
+        {
+            player.linearVelocity = new Vector2(player.linearVelocity.x, knockback);
         }
     }
 
