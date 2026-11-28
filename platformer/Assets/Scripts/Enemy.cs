@@ -9,12 +9,14 @@ public class Enemy : MonoBehaviour
     public float distance = 2f;
 
     Rigidbody2D body;
+    SpriteRenderer spriteRenderer;
     float startX;
     float direction = 1f;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         startX = transform.position.x;
     }
 
@@ -31,6 +33,9 @@ public class Enemy : MonoBehaviour
         }
 
         body.linearVelocity = new Vector2(direction * speed, 0f);
+
+        // The art faces right; flip it when walking left.
+        spriteRenderer.flipX = direction < 0f;
     }
 
     void OnTriggerEnter2D(Collider2D other)

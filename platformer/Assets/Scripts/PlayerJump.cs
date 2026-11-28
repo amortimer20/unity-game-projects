@@ -20,6 +20,7 @@ public class PlayerJump : MonoBehaviour
     public Transform groundCheck;
     public float checkRadius = 0.2f;
     public LayerMask groundLayer;
+    public bool grounded = false;
 
     Rigidbody2D body;
     float coyoteTimer = 0f;
@@ -38,7 +39,7 @@ public class PlayerJump : MonoBehaviour
         }
 
         // Is there any Ground collider inside a small circle at the feet?
-        bool grounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+        grounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
 
         // Standing refills the coyote timer; in the air it runs down.
         if (grounded)
