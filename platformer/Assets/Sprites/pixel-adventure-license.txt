@@ -18,3 +18,5 @@ pack's "Free" folder:
   Checkpoint (No Flag).png, Checkpoint (Flag Idle)(64x64).png
                         Items/Checkpoints/Checkpoint/
   End (Idle).png        Items/Checkpoints/End/End (Idle).png
+  Ninja Frog/*.png      Main Characters/Ninja Frog/
+  Mask Dude/*.png       Main Characters/Mask Dude/
