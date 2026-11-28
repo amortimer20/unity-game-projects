@@ -21,10 +21,13 @@ public class PlayerJump : MonoBehaviour
     public float checkRadius = 0.2f;
     public LayerMask groundLayer;
     public bool grounded = false;
+    public AudioClip jumpSound;
+    public AudioClip landSound;
 
     Rigidbody2D body;
     float coyoteTimer = 0f;
     float bufferTimer = 0f;
+    bool wasGrounded = true;
 
     void Start()
     {
@@ -40,6 +43,13 @@ public class PlayerJump : MonoBehaviour
 
         // Is there any Ground collider inside a small circle at the feet?
         grounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+
+        // Feet just touched down: a soft thud says "you landed".
+        if (grounded && !wasGrounded)
+        {
+            AudioSource.PlayClipAtPoint(landSound, Camera.main.transform.position, 0.6f);
+        }
+        wasGrounded = grounded;
 
         // Standing refills the coyote timer; in the air it runs down.
         if (grounded)
@@ -67,6 +77,7 @@ public class PlayerJump : MonoBehaviour
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpSpeed);
             bufferTimer = 0f;
             coyoteTimer = 0f;
+            AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position);
         }
 
         // Space let go while still rising: keep only part of the upward speed.

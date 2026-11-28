@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 2f;
     public float distance = 2f;
+    public AudioClip defeatSound;
 
     Rigidbody2D body;
     SpriteRenderer spriteRenderer;
@@ -46,6 +47,7 @@ public class Enemy : MonoBehaviour
         }
         else if (other.GetComponent<Shot>() != null)
         {
+            AudioSource.PlayClipAtPoint(defeatSound, Camera.main.transform.position);
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

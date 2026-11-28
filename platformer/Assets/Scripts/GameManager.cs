@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     public Transform respawnPoint;
     public float hurtCooldown = 1f;
     public float knockback = 8f;
+    public AudioSource music;
+    public AudioClip hurtSound;
+    public AudioClip gameOverSound;
+    public AudioClip winSound;
 
     float hurtTimer = 0f;
 
@@ -92,12 +96,15 @@ public class GameManager : MonoBehaviour
         hurtTimer = hurtCooldown;
         health = health - 1;
         UpdateText();
+        PlaySound(hurtSound);
 
         if (health <= 0)
         {
             state = GameState.GameOver;
             player.gameObject.SetActive(false);
             gameOverText.SetActive(true);
+            music.Stop();
+            PlaySound(gameOverSound);
         }
     }
 
@@ -111,6 +118,14 @@ public class GameManager : MonoBehaviour
 
         state = GameState.Won;
         winText.SetActive(true);
+        music.Stop();
+        PlaySound(winSound);
+    }
+
+    // One-shot sounds play at the camera, where the Audio Listener is.
+    void PlaySound(AudioClip clip)
+    {
+        AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
     }
 
     void UpdateText()

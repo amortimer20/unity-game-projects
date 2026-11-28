@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     public Transform spawnPoint;
     public Sprite flagSprite;
+    public AudioClip reachedSound;
 
     SpriteRenderer spriteRenderer;
     bool reached = false;
@@ -22,6 +23,7 @@ public class Checkpoint : MonoBehaviour
             reached = true;
             GameManager.instance.respawnPoint = spawnPoint;
             spriteRenderer.sprite = flagSprite;
+            AudioSource.PlayClipAtPoint(reachedSound, Camera.main.transform.position);
         }
     }
 }

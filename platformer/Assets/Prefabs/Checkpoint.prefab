@@ -186,3 +186,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Checkpoint
   spawnPoint: {fileID: 4872553929549462111}
   flagSprite: {fileID: -8187355101989356663, guid: 7b501a1b6910032408e3bbca8e3c170a, type: 3}
+  reachedSound: {fileID: 8300000, guid: ee46e51138e03ba42a7f401d077ee375, type: 3}

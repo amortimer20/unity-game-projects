@@ -1,0 +1,11 @@
+"Level 1" from 5 Chiptunes (Action) by Juhani Junkala
+https://opengameart.org/content/5-chiptunes-action
+
+License: CC0 (as listed on that page, checked 2026-11-27). The pack's own
+INFO.txt says: "These music tracks have been released under CC0 creative
+commons license. You can do anything you want with these tunes."
+
+CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
+
+Level 1.ogg here is the pack's "Juhani Junkala [Retro Game Music Pack]
+Level 1.wav", converted to Ogg Vorbis (quality 4) to keep the project small.

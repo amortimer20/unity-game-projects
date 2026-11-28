@@ -183,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 2
   distance: 2
+  defeatSound: {fileID: 8300000, guid: 200e3b8062403fb4cac792e487c4845d, type: 3}
 --- !u!95 &4012194661766538747
 Animator:
   serializedVersion: 7

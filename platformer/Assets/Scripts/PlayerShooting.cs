@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject shotPrefab;
+    public AudioClip shootSound;
 
     PlayerMovement movement;
 
@@ -21,6 +22,7 @@ public class PlayerShooting : MonoBehaviour
             Vector3 offset = new Vector3(movement.facing * 0.6f, 0.1f, 0f);
             GameObject shot = Instantiate(shotPrefab, transform.position + offset, Quaternion.identity);
             shot.GetComponent<Shot>().direction = movement.facing;
+            AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position);
         }
     }
 }
