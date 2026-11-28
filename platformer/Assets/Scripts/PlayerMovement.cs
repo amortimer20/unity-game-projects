@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 7f;
+    public float facing = 1f;
 
     Rigidbody2D body;
 
@@ -26,6 +27,12 @@ public class PlayerMovement : MonoBehaviour
         if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
         {
             direction = 1f;
+        }
+
+        // Remember which way the player last pressed: 1 is right, -1 is left.
+        if (direction != 0f)
+        {
+            facing = direction;
         }
 
         // Set the sideways speed and keep whatever vertical speed gravity has given it.

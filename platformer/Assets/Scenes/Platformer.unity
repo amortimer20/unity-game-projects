@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 487627027}
   - component: {fileID: 487627026}
   - component: {fileID: 487627031}
+  - component: {fileID: 487627032}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -431,6 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 7
+  facing: 1
 --- !u!50 &487627027
 Rigidbody2D:
   serializedVersion: 5
@@ -596,11 +598,27 @@ MonoBehaviour:
   riseGravity: 3
   fallGravity: 5
   maxFallSpeed: 15
+  jumpCut: 0.5
+  coyoteTime: 0.1
+  bufferTime: 0.1
   groundCheck: {fileID: 2067961850}
   checkRadius: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &487627032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487627025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e083c1b80c0454c4a9f9b3bfa077ae09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShooting
+  shotPrefab: {fileID: 941933660518180681, guid: 445876ed61bf3274db4f015dbc592a9c, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
