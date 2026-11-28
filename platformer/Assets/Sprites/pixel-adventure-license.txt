@@ -15,3 +15,5 @@ pack's "Free" folder:
   Terrain (16x16).png   Terrain/Terrain (16x16).png
   Blue.png              Background/Blue.png
   Spikes.png            Traps/Spikes/Idle.png
+  Checkpoint (No Flag).png, Checkpoint (Flag Idle)(64x64).png
+                        Items/Checkpoints/Checkpoint/

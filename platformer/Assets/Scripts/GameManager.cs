@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverText;
     public Rigidbody2D player;
     public Transform respawnPoint;
+    public float hurtCooldown = 1f;
+
+    float hurtTimer = 0f;
 
     void Awake()
     {
@@ -35,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        hurtTimer = hurtTimer - Time.deltaTime;
+
         if (state == GameState.GameOver && Keyboard.current.rKey.wasPressedThisFrame)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -42,9 +47,11 @@ public class GameManager : MonoBehaviour
     }
 
     // Hazards call this: lose one health and go back to the respawn point.
+    // Two spikes touched in the same moment would each call it, so for a short
+    // cooldown after a hit, further hits are ignored.
     public void HitHazard()
     {
-        if (state != GameState.Playing)
+        if (state != GameState.Playing || hurtTimer > 0f)
         {
             return;
         }
@@ -61,6 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void LoseHealth()
     {
+        hurtTimer = hurtCooldown;
         health = health - 1;
         UpdateText();
 
