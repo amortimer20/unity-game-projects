@@ -17,3 +17,4 @@ pack's "Free" folder:
   Spikes.png            Traps/Spikes/Idle.png
   Checkpoint (No Flag).png, Checkpoint (Flag Idle)(64x64).png
                         Items/Checkpoints/Checkpoint/
+  End (Idle).png        Items/Checkpoints/End/End (Idle).png

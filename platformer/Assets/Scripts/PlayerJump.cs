@@ -32,6 +32,11 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.state != GameState.Playing)
+        {
+            return;
+        }
+
         // Is there any Ground collider inside a small circle at the feet?
         bool grounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
 

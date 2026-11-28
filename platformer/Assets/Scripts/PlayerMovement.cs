@@ -17,6 +17,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Once the game is over or won, stand still.
+        if (GameManager.instance.state != GameState.Playing)
+        {
+            body.linearVelocity = new Vector2(0f, body.linearVelocity.y);
+            return;
+        }
+
         float direction = 0f;
 
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)

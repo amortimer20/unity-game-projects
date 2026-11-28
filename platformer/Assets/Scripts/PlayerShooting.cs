@@ -15,7 +15,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.jKey.wasPressedThisFrame)
+        if (GameManager.instance.state == GameState.Playing && Keyboard.current.jKey.wasPressedThisFrame)
         {
             // Start the shot just in front of the player, on the side it faces.
             Vector3 offset = new Vector3(movement.facing * 0.6f, 0.1f, 0f);

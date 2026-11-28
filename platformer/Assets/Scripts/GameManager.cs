@@ -3,11 +3,12 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-// The two states the game can be in. It is always exactly one of them.
+// The three states the game can be in. It is always exactly one of them.
 public enum GameState
 {
     Playing,
-    GameOver
+    GameOver,
+    Won
 }
 
 // Keeps the player's health and the game state, and shows them on screen.
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     public int health = 3;
     public TMP_Text healthText;
     public GameObject gameOverText;
+    public GameObject winText;
     public Rigidbody2D player;
     public Transform respawnPoint;
     public float hurtCooldown = 1f;
@@ -35,13 +37,15 @@ public class GameManager : MonoBehaviour
     {
         UpdateText();
         gameOverText.SetActive(false);
+        winText.SetActive(false);
     }
 
     void Update()
     {
         hurtTimer = hurtTimer - Time.deltaTime;
 
-        if (state == GameState.GameOver && Keyboard.current.rKey.wasPressedThisFrame)
+        // After either ending, R starts the level again.
+        if (state != GameState.Playing && Keyboard.current.rKey.wasPressedThisFrame)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -95,6 +99,18 @@ public class GameManager : MonoBehaviour
             player.gameObject.SetActive(false);
             gameOverText.SetActive(true);
         }
+    }
+
+    // The goal calls this when the player reaches it.
+    public void Win()
+    {
+        if (state != GameState.Playing)
+        {
+            return;
+        }
+
+        state = GameState.Won;
+        winText.SetActive(true);
     }
 
     void UpdateText()
