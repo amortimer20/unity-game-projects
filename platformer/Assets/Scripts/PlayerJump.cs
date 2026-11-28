@@ -4,12 +4,14 @@ using UnityEngine.InputSystem;
 // Jumps on Space, but only while standing on something on the Ground layer.
 // The arc is shaped by two gravities: a lighter one on the way up and a heavier
 // one on the way down, so the jump rises with weight and lands quickly.
+// Letting go of Space early cuts the rise short: tap for a hop, hold for a full jump.
 public class PlayerJump : MonoBehaviour
 {
     public float jumpSpeed = 12f;
     public float riseGravity = 3f;
     public float fallGravity = 5f;
     public float maxFallSpeed = 15f;
+    public float jumpCut = 0.5f;
     public Transform groundCheck;
     public float checkRadius = 0.2f;
     public LayerMask groundLayer;
@@ -30,6 +32,12 @@ public class PlayerJump : MonoBehaviour
         {
             // Keep the sideways speed and give it an upward one. Gravity does the rest.
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpSpeed);
+        }
+
+        // Space let go while still rising: keep only part of the upward speed.
+        if (Keyboard.current.spaceKey.wasReleasedThisFrame && body.linearVelocity.y > 0f)
+        {
+            body.linearVelocity = new Vector2(body.linearVelocity.x, body.linearVelocity.y * jumpCut);
         }
 
         // Rising or falling? Pick the gravity for that half of the arc.
