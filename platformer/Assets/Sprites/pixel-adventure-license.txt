@@ -10,5 +10,8 @@ License, as stated on that page (checked 2026-11-27):
 CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
 
 The zip itself contains no license file, so this one records the page's terms.
-Files from this pack in this project: Terrain (16x16).png, Blue.png, and any
-other file whose name matches one in the pack's "Free" folder.
+Files from this pack in this project, with where each came from in the
+pack's "Free" folder:
+  Terrain (16x16).png   Terrain/Terrain (16x16).png
+  Blue.png              Background/Blue.png
+  Spikes.png            Traps/Spikes/Idle.png
